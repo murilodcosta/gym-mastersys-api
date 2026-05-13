@@ -12,7 +12,7 @@ public class Modalidade {
 
     private String nome;
 
-    private Boolean ativo = true;
+    private Boolean ativa = true;
 
     // Getters e Setters
 
@@ -32,11 +32,11 @@ public class Modalidade {
         this.nome = nome;
     }
 
-    public Boolean getAtivo() {
-        return ativo;
+    public Boolean getAtiva() {
+        return ativa;
     }
 
-    public void setAtivo(Boolean ativo) {
-        this.ativo = ativo;
+    public void setAtiva(Boolean ativo) {
+        this.ativa = ativo;
     }
 }

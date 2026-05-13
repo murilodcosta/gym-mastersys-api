@@ -24,7 +24,7 @@ public class Aluno {
     private String telefone;
     private String celular;
     private String email;
-    private String observacao;
+    private String observacoes;
     private String endereco;
     private String numero;
     private String complemento;
@@ -110,12 +110,12 @@ public class Aluno {
         this.email = email;
     }
 
-    public String getObservacao() {
-        return observacao;
+    public String getObservacoes() {
+        return observacoes;
     }
 
-    public void setObservacao(String observacao) {
-        this.observacao = observacao;
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
     }
 
     public String getEndereco() {
