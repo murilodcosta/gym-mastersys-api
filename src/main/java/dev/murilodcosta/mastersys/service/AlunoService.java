@@ -3,6 +3,7 @@ package dev.murilodcosta.mastersys.service;
 import dev.murilodcosta.mastersys.domain.Aluno;
 import dev.murilodcosta.mastersys.dto.AlunoRequest;
 import dev.murilodcosta.mastersys.dto.AlunoResponse;
+import dev.murilodcosta.mastersys.exception.RegraNegocioException;
 import dev.murilodcosta.mastersys.repository.AlunoRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,7 +20,7 @@ public class AlunoService {
 
     public AlunoResponse cadastrar(AlunoRequest alunoRequest) {
         if (alunoRequest.email() != null && alunoRepository.existsByEmail(alunoRequest.email())) {
-            throw new RuntimeException("Já existe um aluno cadastrado com esse email");
+            throw new RegraNegocioException("Já existe um aluno cadastrado com esse email");
         }
         var aluno = alunoRequest.toEntity();
         var alunoSalvo = alunoRepository.save(aluno);
@@ -50,6 +51,8 @@ public class AlunoService {
 
     private Aluno buscarAlunoPorId(Long id) {
         return alunoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Aluno não encontrado"));
+                .orElseThrow(() -> new RegraNegocioException("Aluno não encontrado"));
     }
+
+
 }
