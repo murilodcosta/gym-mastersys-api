@@ -1,5 +1,6 @@
 package dev.murilodcosta.mastersys.controller;
 
+import dev.murilodcosta.mastersys.dto.AlunoFiltroRequest;
 import dev.murilodcosta.mastersys.dto.AlunoRequest;
 import dev.murilodcosta.mastersys.dto.AlunoResponse;
 import dev.murilodcosta.mastersys.service.AlunoService;
@@ -26,8 +27,8 @@ public class AlunoController {
     }
 
     @GetMapping
-    public Page<AlunoResponse> listar(Pageable pageable) {
-        return alunoService.listar(pageable);
+    public Page<AlunoResponse> listar(AlunoFiltroRequest filtro, Pageable pageable) {
+        return alunoService.listar(filtro, pageable);
     }
 
     @GetMapping("/{id}")
