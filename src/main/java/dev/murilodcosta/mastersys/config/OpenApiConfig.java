@@ -52,7 +52,7 @@ public class OpenApiConfig {
                 .externalDocs(
                         new ExternalDocumentation()
                         .description("Documentação do Projeto")
-                        .url("github.com/murilodcosta/academia-api")
+                        .url("github.com/murilodcosta/gym-mastersys-api")
                 );
     }
 }
