@@ -1,0 +1,58 @@
+package dev.murilodcosta.mastersys.config;
+
+import io.swagger.v3.oas.models.ExternalDocumentation;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Contact;
+import io.swagger.v3.oas.models.info.License;
+import io.swagger.v3.oas.models.servers.Server;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.List;
+
+@Configuration
+public class OpenApiConfig {
+
+    @Bean
+    public OpenAPI customOpenAPI() {
+        return new OpenAPI()
+                .info(
+                        new io.swagger.v3.oas.models.info.Info()
+                        .title("Academia API")
+                        .version("1.0")
+                        .description(
+                                """
+                                API para gerenciamento de academia, incluindo:
+                                
+                                - Cadastro de alunos
+                                - Matrículas e planos
+                                - Controle financeiro
+                                - Relatórios gerenciais
+                                
+                                Projeto desenvolvido com Spring Boot para fins educacionais.
+                                """
+                        )
+                        .contact(
+                                new Contact()
+                                .name("Murilo Costa")
+                                .email("murilodiascst@gmail.com")
+                        )
+                        .license(
+                                new License()
+                                .name("Apache 2.0")
+                                .url("http://www.apache.org/licenses/LICENSE-2.0")
+                        )
+                )
+                .servers(List.of(
+                        new Server()
+                        .url("http://localhost:8080")
+                        .description("Servidor Local")
+                        )
+                )
+                .externalDocs(
+                        new ExternalDocumentation()
+                        .description("Documentação do Projeto")
+                        .url("github.com/murilodcosta/academia-api")
+                );
+    }
+}
